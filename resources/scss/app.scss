@@ -1,1 +1,17 @@
+@use './partials/_comic' as *;
 @import '~bootstrap/scss/bootstrap';
+
+
+
+body{
+    background-color: #908a8a;
+    color: rgb(6, 6, 152);
+}
+img {
+    width: 200px;
+}
+
+.description{
+    overflow-y: auto;
+    height: 200px;
+}

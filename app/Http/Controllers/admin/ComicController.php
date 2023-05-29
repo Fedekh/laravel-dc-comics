@@ -15,7 +15,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics=Comic::all();
+        $comics = Comic::all();
         return view('comic.index', compact('comics'));
     }
 
@@ -38,7 +38,7 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $comic= new Comic();
+        $comic = new Comic();
         $comic->title = $data['title'];
         $comic->description = $data['description'];
         $comic->thumb = $data['thumb'];
@@ -58,7 +58,8 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        //
+        $comic = Comic::find($id);
+        return view('comic.show', compact('comic'));
     }
 
     /**
