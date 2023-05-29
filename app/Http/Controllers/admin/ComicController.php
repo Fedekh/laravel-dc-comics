@@ -13,7 +13,7 @@ class ComicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()     //questo metodo serve per mostrare tutti gli elementi
     {
         $comics = Comic::all();
         return view('comic.index', compact('comics'));
@@ -24,7 +24,7 @@ class ComicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create()        //questo metodo serve per creare un nuovo elemento
     {
         return view('comic.create');
     }
@@ -35,7 +35,7 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) //questo metodo serve per salvare un elemento
     {
         $data = $request->all();
         $comic = new Comic();
@@ -56,9 +56,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) //questo metodo serve per mostrare un singolo elemento
     {
-        $comic = Comic::find($id);
+        $comic = Comic::find($id); // find() è un metodo di Laravel che cerca un elemento per id
         return view('comic.show', compact('comic'));
     }
 

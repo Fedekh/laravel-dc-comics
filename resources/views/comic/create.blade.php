@@ -1,45 +1,54 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3>crea il tuo comics</h3>
+    <div class="container text-center">
+        <h1 class="my-3">Crea il tuo comics : </h1>
+        <div class="">
 
-    <form action="{{ route('comic.store') }}" method="POST">
-        @csrf
+            <form action="{{ route('comic.store') }}" method="POST">
+                @csrf
 
-        <div class="form-group">
-            <label for="formGroupExampleInput">inserisci titolo</label>
-            <input type="text" name="title" class="form-control" id="formGroupExampleInput" placeholder="inserisci titolo">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Inserisci titolo</label>
+                    <input type="text" name="title" class="form-control my-3 w-50" id="formGroupExampleInput"
+                        placeholder="Inserisci titolo">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Inserisci descrizione</label>
+                    <input type="text" name="description" class="form-control my-3 w-50" id="formGroupExampleInput"
+                        placeholder="Inserisci descrizione">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Inserisci path foto</label>
+                    <input type="text" name="thumb" class="form-control my-3 w-50" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" placeholder="Inserisci path foto">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Inserisci Prezzo</label>
+                    <input type="text" name="price" class="form-control my-3 w-50" id="formGroupExampleInput2"
+                        placeholder="Inserisci Prezzo">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Inserisci serie</label>
+                    <input type="text" name="series" class="form-control my-3 w-50" id="formGroupExampleInput"
+                        placeholder="Inserisci serie">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Data di pubblicazione</label>
+                    <input type="text" name="sale_date" class="form-control my-3 w-50" id="formGroupExampleInput2"
+                        placeholder="Data di pubblicazione">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Inserisci tipo</label>
+                    <input type="text" name="type" class="form-control my-3 w-50" id="formGroupExampleInput2"
+                        placeholder="Inserisci tipo">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a class="btn btn-warning" href="{{ route('home') }}">Ritorna in home page</a>
+
+                
+            </form>
         </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput">inserisci descrizione</label>
-            <input type="text" name="description" class="form-control" id="formGroupExampleInput"
-                placeholder="inserisci descrizione">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">inserisci url foto</label>
-            <input type="text" name="thumb" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="enter url">
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput2">prezzo</label>
-            <input type="text" name="price" class="form-control" id="formGroupExampleInput2"
-                placeholder="Another prezzo">
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput">Example series</label>
-            <input type="text" name="series" class="form-control" id="formGroupExampleInput"
-                placeholder="Example series">
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput2">Another sales_date</label>
-            <input type="text" name="sale_date" class="form-control" id="formGroupExampleInput2"
-                placeholder="Another sales_date">
-        </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput2">Another type</label>
-            <input type="text" name="type" class="form-control" id="formGroupExampleInput2"
-                placeholder="Another type">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+
+    </div>
 @endsection
