@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\admin\ComicController;
+use App\Http\Controllers\guest\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::resource('comic', ComicController::class);               // serve per creare tutte le rotte per il CRUD

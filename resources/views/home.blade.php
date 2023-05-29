@@ -2,5 +2,10 @@
 
 
 @section('content')
-    <h2>ciao</h2>
+<h1>Ciao vedi i nostri comics</h1>
+<a href="{{ route('comic.index')}}">clicca qui</a>
+
+   
+
+    
 @endsection
