@@ -35,7 +35,7 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) //questo metodo serve per salvare un elemento
+    public function store(Request $request) //questo metodo serve per salvare un elemento. Request è un oggetto che contiene i dati della form
     {
         $data = $request->all();
         $comic = new Comic();
@@ -68,7 +68,7 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id)           //questo metodo serve per modificare un elemento
     {
         //
     }
@@ -80,7 +80,7 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id)   //questo metodo serve per aggiornare un elemento
     {
         //
     }
@@ -91,7 +91,7 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id)    //questo metodo serve per eliminare un elemento
     {
         //
     }
