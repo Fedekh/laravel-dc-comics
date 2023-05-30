@@ -88,14 +88,14 @@ class ComicController extends Controller
     {
         $data = $request->all();
         $comic = Comic::findOrFail($id);
-        $comic->title = $data['title'];
-        $comic->description = $data['description'];
-        $comic->thumb = $data['thumb'];
-        $comic->price = $data['price'];
-        $comic->series = $data['series'];
-        $comic->sale_date = $data['sale_date'];
-        $comic->type = $data['type'];
-        // $comic->update($data);     //update è fratello di fill e occorre inserire nel model il protected fillable cosi: protected $fillable = ['title', 'description', 'thumb', 'price', 'series', 'sale_date', 'type'];
+        // $comic->title = $data['title'];
+        // $comic->description = $data['description'];
+        // $comic->thumb = $data['thumb'];
+        // $comic->price = $data['price'];
+        // $comic->series = $data['series'];
+        // $comic->sale_date = $data['sale_date'];
+        // $comic->type = $data['type'];
+        $comic->update($data);     //update è fratello di fill e occorre inserire nel model il protected fillable cosi: protected $fillable = ['title', 'description', 'thumb', 'price', 'series', 'sale_date', 'type'];
         $comic->save();
         return redirect()->route('comic.show', $comic->id);
     }
@@ -109,7 +109,7 @@ class ComicController extends Controller
     public function destroy($id)    //questo metodo serve per eliminare un elemento
     {
         $comic = Comic::findOrFail($id);
-        $comic->delete();                           //anche qui delete è fratello di fill e occorre inserire nel model il protected fillable cosi: protected $fillable = ['title', 'description', 'thumb', 'price', 'series', 'sale_date', 'type'];
+        $comic->delete();          //anche qui delete è fratello di fill e occorre inserire nel model il protected fillable cosi: protected $fillable = ['title', 'description', 'thumb', 'price', 'series', 'sale_date', 'type'];
         return redirect()->route('comic.index');
     }
 }

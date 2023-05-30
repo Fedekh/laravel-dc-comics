@@ -21,28 +21,41 @@
                             <tr>
                                 <th scope="row">{{ $comic->id }}</th>
                                 <td>{{ $comic->title }}</td>
-                                <td>{{ $comic->description }}</td>
-                                <td>
-                                    <a class="btn btn-success" href="{{ route('comic.show', $comic->id) }}">Dettagli </a>
-                                    <a class="btn btn-primary" href="{{ route('comic.edit', $comic->id) }}">Modifica</a>
-                                    
-                                    <form action="{{ route('comic.destroy', $comic->id) }}" method="POST">
+                                <td class="w-75">{{ $comic->description }}</td>
+                                <td class="d-flex flex-row border-bottom-0 gap-2 ">
+                                    <a class="btn btn-success" href="{{ route('comic.show', $comic->id) }}"><i
+                                            class="fa-solid fa-info fa-bounce"></i> </a>
+                                    <a class="btn btn-primary" href="{{ route('comic.edit', $comic->id) }}"><i
+                                            class="fa-solid fa-gear fa-bounce"></i></a>
+
+                                    <form id="{{ $comic->id }}"
+                                        action="{{ route('comic.destroy', $comic->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger" type="submit">Elimina</button>
+                                        <button class="btn btn-danger" type="button"
+                                            onclick="confirmDelete('{{ $comic->id }}')"><i
+                                                class="fa-solid fa-trash fa-bounce"></i></button>
                                     </form>
                                 </td>
-
                             </tr>
                         </tbody>
                     @endforeach
                 </table>
-                
             </div>
-
         </div>
         <a class="btn btn-success my-5" href="{{ route('comic.create') }}">Aggiungine un altro</a>
-        <!--route serve per richiamare la rotta, nel nostro caso la rotta è comic.create-->
         <a class="btn btn-warning my-5" href="{{ route('home') }}">Ritorna in home page</a>
     </div>
+
+    {{-- onclick="confirmed()" --}}
+
+    <script>
+        function confirmDelete(comicId) {
+            const confirmed = confirm('Sei sicuro di voler eliminare questo fumetto?');
+            if (confirmed) {
+                const form = document.getElementById(comicId);
+                form.submit();
+            }
+        }
+    </script>
 @endsection

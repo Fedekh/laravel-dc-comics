@@ -82,3 +82,20 @@ public function update(Request  $request, $id)   //questo metodo serve per aggio
         $comic->delete();//anche qui delete è fratello di fill e occorre inserire nel model il protected fillable cosi: protected $fillable = ['title', 'description', 'thumb', 'price', 'series', 'sale_date', 'type'];
         return redirect()->route('comic.index');
     }
+
+    <tr>
+    <th scope="row">{{ $comic->id }}</th>
+    <td>{{ $comic->title }}</td>
+    <td>{{ $comic->description }}</td>
+    <td>
+        <a class="btn btn-success" href="{{ route('comic.show', $comic->id) }}">Dettagli </a>
+        <a class="btn btn-primary" href="{{ route('comic.edit', $comic->id) }}">Modifica</a>
+        
+        <form action="{{ route('comic.destroy', $comic->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger" type="submit">Elimina</button>
+        </form>
+    </td>
+
+</tr>

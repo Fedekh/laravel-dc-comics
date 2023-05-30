@@ -44,6 +44,7 @@
                         placeholder="Inserisci tipo">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a class="btn btn-success" href="{{ route('comic.index') }}">Ritorna nella lista</a>
                 <a class="btn btn-warning" href="{{ route('home') }}">Ritorna in home page</a>
 
                 
