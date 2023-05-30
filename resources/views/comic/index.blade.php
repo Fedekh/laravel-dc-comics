@@ -22,21 +22,22 @@
                                 <th scope="row">{{ $comic->id }}</th>
                                 <td>{{ $comic->title }}</td>
                                 <td>{{ $comic->description }}</td>
-                                <td><a class="btn btn-success" href="{{ route('comic.show', $comic->id) }}">Dettagli </a></td>
+                                <td>
+                                    <a class="btn btn-success" href="{{ route('comic.show', $comic->id) }}">Dettagli </a>
+                                    <a class="btn btn-primary" href="{{ route('comic.edit', $comic->id) }}">Modifica</a>
+                                    
+                                    <form action="{{ route('comic.destroy', $comic->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Elimina</button>
+                                    </form>
+                                </td>
+
                             </tr>
                         </tbody>
                     @endforeach
                 </table>
-                {{-- <div class="col g-3">
-                    <div class="card border-0">
-                        <div class="card-body d-flex flex-column align-items-center justify-content-between">
-                            <img class="my-3" src={{ $comic->thumb }} alt="">
-                            <h6 class="card-title"><span>TITOLO: </span> {{ $comic->title }}</h6>
-                            <p class="card-text"><span>Prezzo: </span> {{ $comic->price }} €</p>
-                            <a class="btn btn-success" href="{{ route('comic.show', $comic->id) }}">Dettagli </a>
-                        </div>
-                    </div>
-                </div> --}}
+                
             </div>
 
         </div>
