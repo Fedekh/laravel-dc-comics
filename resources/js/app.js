@@ -29,14 +29,14 @@ const cancelBtn = document.getElementById('cancelBtn');
 buttons.forEach(element => {
   element.addEventListener('click', (e) => {
     e.preventDefault();
-    confirmDeleteDiv.style.display = 'block';
+    confirmDeleteDiv.classList.add('d-block');
 
     confirmBtn.addEventListener('click', () => {
       element.parentElement.submit();
     });
 
     cancelBtn.addEventListener('click', () => {
-      confirmDeleteDiv.style.display = 'none';
+      confirmDeleteDiv.classList.add('d-none');
     });
   })
 });
