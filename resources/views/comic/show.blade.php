@@ -19,17 +19,8 @@
             method="POST">
             @csrf
             @method('DELETE')
-            <button class="btn btn-danger" type="button" onclick="confirmDelete('{{ $comic->id }}')">Elimina</button>
+            <button class="btn btn-danger deletBtn" type="button">Elimina</button>
         </form>
     </div>
 
-    <script>
-        function confirmDelete(comicId) {
-            const confirmed = confirm('Sei sicuro di voler eliminare questo fumetto?');
-            if (confirmed) {
-                const form = document.getElementById(comicId);
-                form.submit();
-            }
-        }
-    </script>
-@endsection
+  @endsection

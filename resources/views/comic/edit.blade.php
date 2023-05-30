@@ -43,24 +43,15 @@
                 </div>
                 <input type="submit" value="Salva" class="btn btn-primary">
                 <a class="btn btn-success" href="{{ route('comic.index') }}">Annulla</a>
-                <form id="{{ $comic->id }}" action="{{ route('comic.destroy', $comic->id) }}" method="POST">
+                <form action="{{ route('comic.destroy', $comic->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger" type="button" onclick="confirmDelete('{{ $comic->id }}')">Elimina</button>
+                    <button class="btn btn-danger deletBtn" type="button">Elimina</button>
                 </form>
 
             </form>
         </div>
 
     </div>
-
-    <script>
-        function confirmDelete(comicId) {
-            const confirmed = confirm('Sei sicuro di voler eliminare questo fumetto?');
-            if (confirmed) {
-                const form = document.getElementById(comicId);
-                form.submit();
-            }
-        }
-    </script>
+   
 @endsection

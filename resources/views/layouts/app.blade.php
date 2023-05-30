@@ -23,6 +23,16 @@
         @yield('content')
     </main>
 
+        
+    {{-- <script>
+        function confirmDelete(comicId) {
+            const confirmed = confirm('Sei sicuro di voler eliminare questo fumetto?');
+            if (confirmed) {
+                const form = document.getElementById(comicId);
+                form.submit();
+            }
+        }
+      </script> --}}
 </body>
 
 </html>
