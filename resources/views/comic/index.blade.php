@@ -7,7 +7,7 @@
 
         <div class="container d-flex flex-wrap text-center">
             <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4">
-                <table class="table table-hover text-white">
+                <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -28,12 +28,10 @@
                                     <a class="btn btn-primary" href="{{ route('comic.edit', $comic->id) }}"><i
                                             class="fa-solid fa-gear fa-bounce"></i></a>
 
-                                    <form  action="{{ route('comic.destroy', $comic->id) }}"
-                                        method="POST">
+                                    <form action="{{ route('comic.destroy', $comic->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger deletBtn" type="button"><i
-                                                class="fa-solid fa-trash fa-bounce"></i></button>
+                                        <button class="btn btn-danger deletBtn" type="button"><i class="fa-solid fa-trash fa-bounce"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -42,8 +40,9 @@
                 </table>
             </div>
         </div>
+       @include('layouts.delete')
+          
         <a class="btn btn-success my-5" href="{{ route('comic.create') }}">Aggiungine un altro</a>
         <a class="btn btn-warning my-5" href="{{ route('home') }}">Ritorna in home page</a>
     </div>
-
 @endsection

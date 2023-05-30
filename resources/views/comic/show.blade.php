@@ -21,6 +21,8 @@
             @method('DELETE')
             <button class="btn btn-danger deletBtn" type="button">Elimina</button>
         </form>
+       @include('layouts.delete')
+
     </div>
 
   @endsection
