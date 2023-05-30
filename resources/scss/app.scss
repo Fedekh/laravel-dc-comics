@@ -7,6 +7,7 @@
 body {
     background-color: #333;
     color: rgb(62, 236, 85);
+    position: relative;
 }
 
 img {
@@ -19,12 +20,14 @@ form {
 
 
 .hide {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
+    position: sticky;
+    z-index: 2;
+    bottom: 45%;
+    left: 35%;
     #confirmDelete {
+        position: absolute;
+        left:38%;
+        display: none;
         background: rgba(255, 255, 255);
         background-color: rgb(7, 190, 181);
         width: 300px;
@@ -70,18 +73,18 @@ form {
     }
 
     #confirmBtn {
-        background-color: green;
+        background-color: rgb(227, 55, 7);
 
     }
 
     #cancelBtn {
-        background-color: rgb(69, 58, 58);
+        background-color: rgb(34, 127, 4);
     }
 
     p {
         z-index: 3;
         position: relative;
-        color: rgb(255, 4, 0);
-        font-weight: bold;
+        color: rgb(183, 6, 223);
+        font-weight: 500;
     }
 }

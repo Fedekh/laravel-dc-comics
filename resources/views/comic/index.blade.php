@@ -40,7 +40,7 @@
                 </table>
             </div>
         </div>
-       @include('layouts.delete')
+        @include('layouts.delete')
           
         <a class="btn btn-success my-5" href="{{ route('comic.create') }}">Aggiungine un altro</a>
         <a class="btn btn-warning my-5" href="{{ route('home') }}">Ritorna in home page</a>
