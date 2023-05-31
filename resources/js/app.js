@@ -6,20 +6,7 @@ import.meta.glob([
     
 ])
 
-// const buttons= document.querySelectorAll('.deletBtn');
 
-// buttons.forEach(element => {
-//     element.addEventListener('click', (e)=>{
-//             e.preventDefault();
-//             console.log(e);
-//             const confirmed = confirm('Sei sicuro di voler eliminare questo fumetto?');
-//             if (confirmed) {
-//                 element.parentElement.submit();
-//             }
-
-//     })
-    
-// });
 
 const buttons = document.querySelectorAll('.deletBtn');
 const confirmDeleteDiv = document.getElementById('confirmDelete');
@@ -28,7 +15,7 @@ const cancelBtn = document.getElementById('cancelBtn');
 
 buttons.forEach(element => {
   element.addEventListener('click', (e) => {
-    e.preventDefault();
+    e.preventDefault();  // evita il comportamento di default del form cioe l'invio dei dati e refresh della pagina
     confirmDeleteDiv.classList.add('d-block');
 
     confirmBtn.addEventListener('click', () => {

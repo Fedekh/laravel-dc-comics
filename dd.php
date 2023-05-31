@@ -41,7 +41,7 @@ public function edit($id)           //questo metodo serve per modificare un elem
         <input type="text" name="series" id="series" class="form-control" value="{{ $comic->series }}">
     </div>
     <select name="" id="">
-        <option @selected($comic->type==='comic') value="comic">comic</option>
+        <option @selected($comic->type==='comic') value="comic">comic</option> <!-- il @selected è come dire: se la condizione è vera aggiungi il value ugual a comic -->
         <option @selected($comic->type==='grapich novel') value="graphic novel">graphic novel</option>
     </select>
     <div class="form-group">

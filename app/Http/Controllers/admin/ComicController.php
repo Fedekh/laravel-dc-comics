@@ -39,17 +39,16 @@ class ComicController extends Controller
     {
         $data = $request->all();
         $comic = new Comic();
-        // $comic->fill($data);     //update è fratello di fill e occorre inserire nel model il protected fillable cosi: protected $fillable = ['title', 'description', 'thumb', 'price', 'series', 'sale_date', 'type'];
-
-        $comic->title = $data['title'];
-        $comic->description = $data['description'];
-        $comic->thumb = $data['thumb'];
-        $comic->price = $data['price'];
-        $comic->series = $data['series'];
-        $comic->sale_date = $data['sale_date'];
-        $comic->type = $data['type'];
+        $comic->fill($data);     //update è fratello di fill e occorre inserire nel model il protected fillable cosi: protected $fillable = ['title', 'description', 'thumb', 'price', 'series', 'sale_date', 'type'];
         $comic->save();
         return redirect()->route('comic.index');
+        // $comic->title = $data['title'];
+        // $comic->description = $data['description'];
+        // $comic->thumb = $data['thumb'];
+        // $comic->price = $data['price'];
+        // $comic->series = $data['series'];
+        // $comic->sale_date = $data['sale_date'];
+        // $comic->type = $data['type'];
     }
 
     /**
@@ -86,8 +85,10 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)   //questo metodo serve per aggiornare un elemento
     {
-        $data = $request->all();
-        $comic = Comic::findOrFail($id);
+        $data = $request->all();          //request è un oggetto che contiene i dati della form
+        $comic = Comic::findOrFail($id); // cerca un elemento per id e se non lo trova restituisce un errore
+        $comic->update($data);            //update è fratello di fill e occorre inserire nel model il protected fillable cosi: protected $fillable = ['title', 'description', 'thumb', 'price', 'series', 'sale_date', 'type'];
+        return redirect()->route('comic.show', $comic->id);
         // $comic->title = $data['title'];
         // $comic->description = $data['description'];
         // $comic->thumb = $data['thumb'];
@@ -95,9 +96,6 @@ class ComicController extends Controller
         // $comic->series = $data['series'];
         // $comic->sale_date = $data['sale_date'];
         // $comic->type = $data['type'];
-        $comic->update($data);     //update è fratello di fill e occorre inserire nel model il protected fillable cosi: protected $fillable = ['title', 'description', 'thumb', 'price', 'series', 'sale_date', 'type'];
-        $comic->save();
-        return redirect()->route('comic.show', $comic->id);
     }
 
     /**
