@@ -23,7 +23,7 @@ buttons.forEach(element => {
     });
 
     cancelBtn.addEventListener('click', () => {
-      confirmDeleteDiv.classList.add('d-none');
+      confirmDeleteDiv.classList.remove('d-block');
     });
   })
 });
