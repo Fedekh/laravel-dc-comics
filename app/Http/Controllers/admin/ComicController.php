@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
@@ -35,13 +36,16 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) //questo metodo serve per salvare un elemento. Request è un oggetto che contiene i dati della form
+    public function store(StoreComicRequest $request) //questo metodo serve per salvare un elemento. Request è un oggetto che contiene i dati della form
     {
-        $data = $request->all();
+        // $data = $request->all();
+        $data=$request->validated();
         $comic = new Comic();
         $comic->fill($data);     //update è fratello di fill e occorre inserire nel model il protected fillable cosi: protected $fillable = ['title', 'description', 'thumb', 'price', 'series', 'sale_date', 'type'];
         $comic->save();
         return redirect()->route('comic.index');
+
+        
         // $comic->title = $data['title'];
         // $comic->description = $data['description'];
         // $comic->thumb = $data['thumb'];
