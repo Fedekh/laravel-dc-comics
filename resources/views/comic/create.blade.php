@@ -22,34 +22,40 @@
                 <div class="form-group">
                     <label for="formGroupExampleInput">Inserisci titolo</label>
                     <input type="text" name="title" class="form-control my-3 w-50 @error('title') is-invalid @enderror"
-                        id="formGroupExampleInput" placeholder="Inserisci titolo"  value="{{ old('title') }}">
+                        id="formGroupExampleInput" placeholder="Inserisci titolo" value="{{ old('title') }}">
+                    <!-- old() è un metodo che permette di mantenere il valore inserito in caso di errore, e scritto cosi, con 1 parametro, il primo è il nome del campo -->
                     @error('title')
+                        <!-- $errors è una variabile globale che contiene tutti gli errori, con any() restituisce un booleano, se ci sono errori allora mostriamo la lista degli errori -->
                         <div class="invalid-feedback">
-                            {{ $message }}
+                            {{ $message }} {{-- $message è una variabile globale che fa parte di $errors --}}
                         </div>
                     @enderror
                 </div>
+                
                 <div class="form-group">
                     <label for="formGroupExampleInput">Inserisci descrizione</label>
                     <input type="text" name="description"
                         class="form-control my-3 w-50 @error('description') is-invalid @enderror" id="formGroupExampleInput"
-                        placeholder="Inserisci descrizione" value="{{ old('text') }}">
+                        placeholder="Inserisci descrizione" value="{{ old('description') }}">
                     @error('description')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
+                
                 <div class="form-group">
                     <label for="exampleInputEmail1">Inserisci path foto</label>
                     <input type="text" name="thumb" class="form-control my-3 w-50 @error('thumb') is-invalid @enderror"
-                        id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Inserisci path foto" value="{{ old('thumb') }}">
+                        id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Inserisci path foto"
+                        value="{{ old('thumb') }}">
                     @error('thumb')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
+                
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Inserisci Prezzo</label>
                     <input type="text" name="price" class="form-control my-3 w-50 @error('price') is-invalid @enderror"
@@ -60,16 +66,19 @@
                         </div>
                     @enderror
                 </div>
+                
                 <div class="form-group">
                     <label for="formGroupExampleInput">Inserisci serie</label>
-                    <input type="text" name="series" class="form-control my-3 w-50 @error('series') is-invalid @enderror"
-                        id="formGroupExampleInput" placeholder="Inserisci serie" value="{{ old('series') }}">
+                    <input type="text" name="series"
+                        class="form-control my-3 w-50 @error('series') is-invalid @enderror" id="formGroupExampleInput"
+                        placeholder="Inserisci serie" value="{{ old('series') }}">
                     @error('series')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
+                
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Data di pubblicazione</label>
                     <input type="text" name="sale_date"
@@ -81,6 +90,7 @@
                         </div>
                     @enderror
                 </div>
+                
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Inserisci tipo</label>
                     <input type="text" name="type" class="form-control my-3 w-50 @error('type') is-invalid @enderror"
@@ -91,6 +101,7 @@
                         </div>
                     @enderror
                 </div>
+                
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <a class="btn btn-success" href="{{ route('comic.index') }}">Ritorna nella lista</a>
                 <a class="btn btn-warning" href="{{ route('home') }}">Ritorna in home page</a>

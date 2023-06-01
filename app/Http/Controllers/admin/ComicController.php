@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
@@ -45,7 +46,7 @@ class ComicController extends Controller
         $comic->save();
         return redirect()->route('comic.index');
 
-        
+
         // $comic->title = $data['title'];
         // $comic->description = $data['description'];
         // $comic->thumb = $data['thumb'];
@@ -87,9 +88,11 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)   //questo metodo serve per aggiornare un elemento
+    public function update(UpdateComicRequest $request, $id)   //questo metodo serve per aggiornare un elemento
     {
-        $data = $request->all();          //request è un oggetto che contiene i dati della form
+        // $data = $request->all();          //request è un oggetto che contiene i dati della form
+        $data=$request->validated();
+
         $comic = Comic::findOrFail($id); // cerca un elemento per id e se non lo trova restituisce un errore
         $comic->update($data);            //update è fratello di fill e occorre inserire nel model il protected fillable cosi: protected $fillable = ['title', 'description', 'thumb', 'price', 'series', 'sale_date', 'type'];
         return redirect()->route('comic.show', $comic->id);
