@@ -4,9 +4,9 @@
     <div class="container text-center">
         <h1 class="my-3">Crea il tuo comics : </h1>
 
-        {{-- @if ($errors->any())
-            <ul class="list-unstyled">
-                @foreach ($errors->all() as $error)
+        {{-- @if ($errors->any())        $errors è una variabile globale che contiene tutti gli errori, con any() restituisce un booleano, se ci sono errori allora mostriamo la lista degli errori
+            <ul class="list-unstyled">          
+                @foreach ($errors->all() as $error)    all() restituisce un array con tutti gli errori
                     <li>
                         {{ $error }}
                     </li>
@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <label for="formGroupExampleInput">Inserisci titolo</label>
                     <input type="text" name="title" class="form-control my-3 w-50 @error('title') is-invalid @enderror"
-                        id="formGroupExampleInput" placeholder="Inserisci titolo">
+                        id="formGroupExampleInput" placeholder="Inserisci titolo"  value="{{ old('title') }}">
                     @error('title')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -32,9 +32,9 @@
                 <div class="form-group">
                     <label for="formGroupExampleInput">Inserisci descrizione</label>
                     <input type="text" name="description"
-                        class="form-control my-3 w-50 @error('title') is-invalid @enderror" id="formGroupExampleInput"
-                        placeholder="Inserisci descrizione">
-                    @error('title')
+                        class="form-control my-3 w-50 @error('description') is-invalid @enderror" id="formGroupExampleInput"
+                        placeholder="Inserisci descrizione" value="{{ old('text') }}">
+                    @error('description')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -42,9 +42,9 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Inserisci path foto</label>
-                    <input type="text" name="thumb" class="form-control my-3 w-50 @error('title') is-invalid @enderror"
-                        id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Inserisci path foto">
-                    @error('title')
+                    <input type="text" name="thumb" class="form-control my-3 w-50 @error('thumb') is-invalid @enderror"
+                        id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Inserisci path foto" value="{{ old('thumb') }}">
+                    @error('thumb')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -52,9 +52,9 @@
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Inserisci Prezzo</label>
-                    <input type="text" name="price" class="form-control my-3 w-50 @error('title') is-invalid @enderror"
-                        id="formGroupExampleInput2" placeholder="Inserisci Prezzo">
-                    @error('title')
+                    <input type="text" name="price" class="form-control my-3 w-50 @error('price') is-invalid @enderror"
+                        id="formGroupExampleInput2" placeholder="Inserisci Prezzo" value="{{ old('price') }} ">
+                    @error('price')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -62,9 +62,9 @@
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput">Inserisci serie</label>
-                    <input type="text" name="series" class="form-control my-3 w-50 @error('title') is-invalid @enderror"
-                        id="formGroupExampleInput" placeholder="Inserisci serie">
-                    @error('title')
+                    <input type="text" name="series" class="form-control my-3 w-50 @error('series') is-invalid @enderror"
+                        id="formGroupExampleInput" placeholder="Inserisci serie" value="{{ old('series') }}">
+                    @error('series')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -73,9 +73,9 @@
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Data di pubblicazione</label>
                     <input type="text" name="sale_date"
-                        class="form-control my-3 w-50 @error('title') is-invalid @enderror" id="formGroupExampleInput2"
-                        placeholder="Data di pubblicazione">
-                    @error('title')
+                        class="form-control my-3 w-50 @error('sale_date') is-invalid @enderror" id="formGroupExampleInput2"
+                        placeholder="Data di pubblicazione" value="{{ old('sale_date') }}">
+                    @error('sale_date')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -83,9 +83,9 @@
                 </div>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Inserisci tipo</label>
-                    <input type="text" name="type" class="form-control my-3 w-50 @error('title') is-invalid @enderror"
-                        id="formGroupExampleInput2" placeholder="Inserisci tipo">
-                    @error('title')
+                    <input type="text" name="type" class="form-control my-3 w-50 @error('type') is-invalid @enderror"
+                        id="formGroupExampleInput2" placeholder="Inserisci tipo" value="{{ old('type') }}">
+                    @error('type')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
